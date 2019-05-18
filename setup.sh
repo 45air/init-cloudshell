@@ -17,7 +17,7 @@ mkdir -p -- "/home/$USER/.ssh"
 chmod 700 -- "/home/$USER/.ssh"
 
 bold "Decrypt private key and setup SSH for github"
-gcloud decrypt --key=bot-key --keyring=github --location=global --ciphertext-file="$DIR/id_rsa.enc" --plaintext-file="/home/$USER/.ssh/id_rsa"
+gcloud kms decrypt --key=bot-key --keyring=github --location=global --ciphertext-file="$DIR/id_rsa.enc" --plaintext-file="/home/$USER/.ssh/id_rsa"
 cp -- "$DIR/id_rsa.pub" "/home/$USER/.ssh/id_rsa.pub"
 chmod 600 /home/$USER/.ssh/id_rsa
 chmod 644 /home/$USER/.ssh/id_rsa.pub
